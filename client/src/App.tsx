@@ -1,5 +1,5 @@
 import './App.css';
-import { Footer, Loader, Navbar, Services, Transactions, Welcome } from "./components";
+import { Footer, Navbar, Services, Transactions, Welcome } from "./components";
 
 function App() {
   return (
