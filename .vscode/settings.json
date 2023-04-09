@@ -3,7 +3,6 @@
         "client/node_modules/": true,
         "smart_contract/node_modules/": true,
         "smart_contract/typechain-types/": true,
-        "smart_contract/artifacts/": true,
         "smart_contract/cache/": true
     }
 }
