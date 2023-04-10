@@ -13,34 +13,38 @@ const getEthereumContract = () => {
 }
 
 export type TransactionContextType = {
-    connectWallet: () => Promise<void>;
-  };
+    connectWallet: () => Promise<void>,
+    currentAccount: string,
+};
   
 export const TransactionContext = React.createContext<TransactionContextType>({
     connectWallet: async () => {
         throw new Error("connectWallet function not yet implemented");
     },
+    currentAccount: '',
 });
 
 export const TransactionProvider = ({children}: any) => {
-    const [connectedAccount, setConnectedAccount] = useState('');
+    const [currentAccount, setCurrentAccount] = useState('');
 
     const checkIfWalletIsConnect = async () => {
-        if (!ethereum) {
-            alert("MetaMask not detected.");
-            return;
+        try {
+            if (!ethereum) {
+                alert("MetaMask not detected.");
+                return;
+            }
+            
+            const accounts = await ethereum.request({method: 'eth_accounts'});
+            
+            if (accounts.length > 0) {
+                setCurrentAccount(accounts[0]);
+            } else {
+                console.log('No Accounts Found');
+            }
+        } catch (error) {
+            console.error(error);
+            throw new Error("No Ethereum Object");
         }
-
-        
-        const accounts = await ethereum.request({method: 'eth_accounts'});
-        
-        if (accounts.length > 0) {
-            setConnectedAccount(accounts[0]);
-        } else {
-            console.log('No Accounts Found');
-        }
-        
-        console.log(accounts);
     }
 
     const connectWallet = async () => {
@@ -52,11 +56,10 @@ export const TransactionProvider = ({children}: any) => {
     
             const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     
-            setConnectedAccount(accounts[0]);
+            setCurrentAccount(accounts[0]);
         } catch (error) {
             console.error(error);
             throw new Error("No Ethereum Object");
-            
         }
     }
 
@@ -65,7 +68,7 @@ export const TransactionProvider = ({children}: any) => {
     }, []);
 
     return (
-        <TransactionContext.Provider value={{connectWallet}}>
+        <TransactionContext.Provider value={{connectWallet, currentAccount}}>
             {children}
         </TransactionContext.Provider>
     )
