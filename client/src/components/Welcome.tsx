@@ -1,6 +1,7 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useContext } from "react";
 import { BsInfoCircle } from "react-icons/bs";
 import { SiEthereum } from "react-icons/si";
+import { TransactionContext } from "../context/TransactionContext";
 import { Loader } from "./";
 
 const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
@@ -27,15 +28,13 @@ const Input = ({placeholder, name, type, value, handleChange}: Props): JSX.Eleme
     );
 }
 
-const connectWallet = () => {
-    console.log('cclicked');
-}
-
 const handleSubmit = () => {
     console.log('submmited');
 }
 
 const Welcome = (): JSX.Element => {
+    const { connectWallet } = useContext(TransactionContext);
+
     return (
         <div className="flex w-full justify-center items-center">
             <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
