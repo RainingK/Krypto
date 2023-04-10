@@ -10,17 +10,17 @@ interface Props {
     placeholder: string,
     name: string,
     type: string,
-    value: string,
+    defaultValue: string,
     handleChange: (event: ChangeEvent<HTMLInputElement>, name: string) => void,
 }
 
-const Input = ({placeholder, name, type, value, handleChange}: Props): JSX.Element => {
+const Input = ({placeholder, name, type, defaultValue, handleChange}: Props): JSX.Element => {
     return (
         <input
             placeholder={placeholder} 
             name={name}
             type={type}
-            value={value}
+            defaultValue={defaultValue}
             step="0.0001"
             onChange={(e) => handleChange(e, name)}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-small white-glassmorphism"
@@ -28,12 +28,17 @@ const Input = ({placeholder, name, type, value, handleChange}: Props): JSX.Eleme
     );
 }
 
-const handleSubmit = () => {
-    console.log('submmited');
-}
 
 const Welcome = (): JSX.Element => {
-    const { connectWallet, currentAccount } = useContext(TransactionContext);
+    const { connectWallet, currentAccount, formData, setFormData, handleChange, sendTransaction } = useContext(TransactionContext);
+    
+    const handleSubmit = () => {
+        const { addressTo, amount, keyword, message } = formData;
+
+        if (!addressTo || !amount || !keyword || !message) return;
+
+        sendTransaction();
+    }
 
     return (
         <div className="flex w-full justify-center items-center">
@@ -102,10 +107,10 @@ const Welcome = (): JSX.Element => {
 
                     {/* Form */}
                     <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-                        <Input placeholder="Address To" name="addressTo" type="text" value="" handleChange={() => {}}/>
-                        <Input placeholder="Amount (ETH)" name="amount" type="number" value="0" handleChange={() => {}}/>
-                        <Input placeholder="Keyword (GIF)" name="keyword" type="text" value="" handleChange={() => {}}/>
-                        <Input placeholder="Enter Message" name="message" type="text" value="" handleChange={() => {}}/>
+                        <Input placeholder="Address To" name="addressTo" type="text" defaultValue="" handleChange={handleChange}/>
+                        <Input placeholder="Amount (ETH)" name="amount" type="number" defaultValue="0" handleChange={handleChange}/>
+                        <Input placeholder="Keyword (GIF)" name="keyword" type="text" defaultValue="" handleChange={handleChange}/>
+                        <Input placeholder="Enter Message" name="message" type="text" defaultValue="" handleChange={handleChange}/>
                         
                         {/* Line */}
                         <div className="h-[1px] w-full bg-gray-400 my-2"></div>
