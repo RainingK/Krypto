@@ -8,8 +8,6 @@
 	"editor.formatOnSave": true,
 	"editor.tabSize": 2,
 	"files.eol": "\n",
-	"omnisharp.enableEditorConfigSupport": true,
-	"omnisharp.enableRoslynAnalyzers": true,
 	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
 	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
 	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
@@ -23,9 +21,7 @@
 	"zenMode.centerLayout": false,
 	"zenMode.hideLineNumbers": false,
 	"zenMode.hideTabs": false,
-	"editor.fontLigatures": true,
 	"editor.find.addExtraSpaceOnTop": false,
-	"editor.snippetSuggestions": "top",
 	"emmet.showSuggestionsAsSnippets": true,
 	"editor.formatOnSaveMode": "modifications",
 }
