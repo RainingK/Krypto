@@ -1,8 +1,31 @@
 {
-    "files.exclude": {
-        "client/node_modules/": true,
-        "smart_contract/node_modules/": true,
-        "smart_contract/typechain-types/": true,
-        "smart_contract/cache/": true
-    }
+	"files.exclude": {
+		"client/node_modules/": true,
+		"smart_contract/node_modules/": true,
+		"smart_contract/typechain-types/": true,
+		"smart_contract/cache/": true
+	},
+	"editor.formatOnSave": true,
+	"editor.tabSize": 2,
+	"files.eol": "\n",
+	"omnisharp.enableEditorConfigSupport": true,
+	"omnisharp.enableRoslynAnalyzers": true,
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+	"typescript.format.insertSpaceAfterConstructor": true,
+	"typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+	"typescript.format.insertSpaceAfterTypeAssertion": true,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"files.insertFinalNewline": true,
+	"zenMode.centerLayout": false,
+	"zenMode.hideLineNumbers": false,
+	"zenMode.hideTabs": false,
+	"editor.fontLigatures": true,
+	"editor.find.addExtraSpaceOnTop": false,
+	"editor.snippetSuggestions": "top",
+	"emmet.showSuggestionsAsSnippets": true,
+	"editor.formatOnSaveMode": "modifications",
 }
