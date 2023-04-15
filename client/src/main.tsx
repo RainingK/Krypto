@@ -5,6 +5,6 @@ import { TransactionProvider } from './context/TransactionContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <TransactionProvider>
-    <App />,
+		<App />
   </TransactionProvider>
 )
