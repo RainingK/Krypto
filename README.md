@@ -4,4 +4,10 @@ A simple blockchain application used to send etherium from one account to anothe
 ## How to run
 
 ### 1. Install packages
-`npm install`
+```
+cd client
+npm install
+
+cd ../smart_contract
+npm install
+```
