@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 .env
-Transactions.json
+# Transactions.json
