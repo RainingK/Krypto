@@ -31,7 +31,7 @@ const Input = ({placeholder, name, type, defaultValue, handleChange}: Props): JS
 
 
 const Welcome = (): JSX.Element => {
-	const { connectWallet, currentAccount, formData, setFormData, handleChange, sendTransaction } = useContext( TransactionContext );
+	const { connectWallet, currentAccount, formData, setFormData, handleChange, sendTransaction, isLoading } = useContext( TransactionContext );
 
 	const handleSubmit = () => {
 		const { addressTo, amount, keyword, message } = formData;
@@ -116,7 +116,7 @@ const Welcome = (): JSX.Element => {
 						<div className="h-[1px] w-full bg-gray-400 my-2"></div>
 
 						{/* Loading Spinner */ }
-						{ false ? (
+						{ isLoading ? (
 							<Loader />
 						) : (
 							<button
