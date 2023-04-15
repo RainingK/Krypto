@@ -37,7 +37,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: client/package-lock.json
       - name: Install dependencies
-        run: npm install
+        run: cd client && npm install
       - name: Build
         run: npm run build
       - name: Setup Pages
